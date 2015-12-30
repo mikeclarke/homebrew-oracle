@@ -8,7 +8,8 @@ class OracleFdw < Formula
   depends_on "oracle-headers"
 
   def install
-    system "make"
-    system "make", "install"
+    pg_config = "/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config"
+    system "make", "PG_CONFIG=#{pg_config}"
+    system "make", "PG_CONFIG=#{pg_config}", "install"
   end
 end
