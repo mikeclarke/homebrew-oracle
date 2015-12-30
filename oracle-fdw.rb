@@ -6,11 +6,9 @@ class OracleFdw < Formula
 
   depends_on "oracle-client"
   depends_on "oracle-headers"
-  depends_on "postgresql"
 
   def install
-    pg_config = "#{Formula["postgresql"].opt_bin}/pg_config"
-    system "make", "PG_CONFIG=#{pg_config}"
-    system "make", "PG_CONFIG=#{pg_config}", "install"
+    system "make"
+    system "make", "install"
   end
 end
